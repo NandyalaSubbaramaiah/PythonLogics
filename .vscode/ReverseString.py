@@ -29,13 +29,13 @@ s2=set(s)
 Output=''.join(s2)
 print(Output)
 
-s='AABBSDAG'
-s2=set(s)
-Output=''.join(s2)
-print(Output)
+s='naman'
+reverse=(s[::-1])
+if reverse==s:
+    print('palindrom')
+else:
+    print('Not Palindrome')
 
-s='AABBSDAG'
-s2=set(s)
-Output=''.join(s2)
-print(Output)
-
+string="subbu"
+mystr=len(string)
+print(mystr)
