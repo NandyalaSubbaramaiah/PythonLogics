@@ -29,13 +29,4 @@ s2=set(s)
 Output=''.join(s2)
 print(Output)
 
-s='AABBSDAG'
-s2=set(s)
-Output=''.join(s2)
-print(Output)
-
-s='AABBSDAG'
-s2=set(s)
-Output=''.join(s2)
-print(Output)
 
