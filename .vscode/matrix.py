@@ -1,7 +1,7 @@
 #2. Matrix Addition
 #Adding two matrices element-wise:
 
-"""A = [[1, 2], [3, 4]]
+A = [[1, 2], [3, 4]]
 B = [[5, 6], [7, 8]]
 
 result = [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
@@ -202,7 +202,7 @@ for row in result:
 from ast import main
 
 
-mat = [
+"""mat = [
 [1, 2, 3], 
 [4, 5, 6],
 [7, 8, 9]
@@ -232,7 +232,7 @@ for i in range(len(mat)):
     i=2   same loop again here also 
     #The reason we use one loop is that both diagonals have exactly one element in every row
 print(total)
-
+"""
 #searches in matrix
 
 mat = [
@@ -300,4 +300,3 @@ for i in range(len(mat)):
         max_sum=total
         max_col=j
 print("max_col: ", max_col, "max sum: ", max_sum)
-"""

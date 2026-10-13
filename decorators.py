@@ -142,8 +142,8 @@ def decorator(func):
     return wrapper
 
 @decorator
-def dashboard(email,role):
-     return f"user {email} is authorized"
+def dashboard(email, role):
+     return f"user {email} is {role} authorized"
 
-print(dashboard("Subbu","user")) 
-print(dashboard("Subbu","admin")) 
+print(dashboard("Subbu@gmail","user")) 
+print(dashboard("Subbaram@gmail.com","admin")) 

@@ -49,10 +49,13 @@ class MyClass:
         return f"Instance method called. Accessing: {self.instance_variable}"
 
 my_instance = MyClass("I am an instance variable")
+
 print(my_instance.class_method())  # Accessing class method and modifying class variable
 print(MyClass.class_method())  # Accessing class method without instance and modifying class variable
+
 print(my_instance.static_method())  # Accessing static method
 print(MyClass.static_method())  # Accessing static method without instance
+
 my_instance.instance_variable = "Modified instance variable"
 print(my_instance.instance_method())  # Accessing instance method
 

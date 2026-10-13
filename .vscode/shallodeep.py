@@ -7,7 +7,7 @@ shallow = copy.copy(original)
 
 shallow[0][0] = 100                 
 
-print("Original:", original) 
+print("Original:", original)  
 print("Shallow :", shallow)
 
 """original ──→ [ outer list ]--->memory address and store the reference of inner list
@@ -37,7 +37,7 @@ deep = copy.deepcopy(original)
 
 deep[0][0] = 100
 
-print("Original:", original)
+print(">Original:", original)
 print("Deep    :", deep)
 
 """Original objects              Deep-copy objects

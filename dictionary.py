@@ -14,7 +14,18 @@ Nested JSON transformation
 Flattening nested dictionaries
 Real API response transformation"""
 
-"""#finding max value and duplicates in dictionary
+"""# Sorting dictionaries
+# Sort by keys
+scores = {'Charlie': 95, 'Alice': 90, 'Bob': 85}
+print('Sorted by key:', dict(sorted(scores.items())))
+
+# Sort by values in ascending order
+print('Sorted by value ascending:', dict(sorted(scores.items(), key=lambda item: item[1])))
+
+# Sort by values in descending order
+print('Sorted by value descending:', dict(sorted(scores.items(), key=lambda item: item[1], reverse=True)))
+
+#finding max value and duplicates in dictionary
 ini_dict = {'a':1, 'b':2, 'c':3, 'd':2}
 new_dict={}
 x=ini_dict.get('a')
@@ -39,7 +50,7 @@ print(y,x)
 #another method
 Tv={"Evildead":100,"Terminator":1200,"GameOfThrowns":70}
 keymax=min(zip(Tv.values(),Tv.keys()))[0]
-print(keymax)
+print(keymax) 
 
 
 # Python3 code to demonstrate working of
@@ -126,7 +137,7 @@ print(dict_comprehension)
 #convert list to dictionary
 list1=['a','b','c']
 list2=[1,2,3]
-newdict=dict(zip(list1,list2))
+newdict=dict(zip(list1, list2)) 
 print(newdict)
 
 #converts two saparate list
@@ -216,7 +227,7 @@ for user,key,value in data:
 print(result)
 
 
-#convertig jjson formate to dictionary with nested structure
+#convertig json formate to dictionary with nested structure
 users=[
     {
         "user_id": "user1",
@@ -282,10 +293,10 @@ for name,department in students:
 
 print(grouped_students)
 
-
+# It separates the numbers into even and odd groups and stores those groups in a dictionary
 numbers = [1, 2, 3, 4, 5, 6]
 
-grouped = {
+grouped = { #also considered as a dictionary with keys "even" and "odd" and their corresponding values as empty lists
     "even": [],
     "odd": []
 }
@@ -360,7 +371,7 @@ student_records = {
         "name": "Alice",
         "marks": {"math": 95, "science": 92}
     }
-}
+} 
 
 # Access and update a value in the innermost dictionary
 print(student_records["student1"]["marks"]["math"])
@@ -370,7 +381,7 @@ student_records["student1"]["marks"]["math"] = 96
 for student_id, student in student_records.items():
     print(student_id, student["name"], student["marks"])
 
-"""
+
 # Dictionary comprehension problems
 # 1. Map each number from 1 to 5 to its cubes
 cubes = {number: number ** 3 for number in range(1, 6)}
@@ -398,3 +409,19 @@ print(long_word_lengths)
 scores = {"Alice": 90, "Bob": 85, "Chris": 92}
 scores_by_points = {score: name for name, score in scores.items()}
 print(scores_by_points) 
+"""
+scores = {'Charlie': 95, 'Alice': 90, 'Bob': 85}
+
+# Sort by key
+print(dict(sorted(scores.items())))
+
+by_value_ascending = dict(
+    sorted(scores.items(), key=lambda item: item[1])
+)
+print(by_value_ascending)
+
+by_value_descending = dict(
+    sorted(scores.items(), key=lambda item: item[1], reverse=True)
+)
+
+print(by_value_descending)

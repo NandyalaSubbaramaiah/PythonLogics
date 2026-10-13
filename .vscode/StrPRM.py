@@ -400,7 +400,7 @@ def check_upper_lower_vowels(s):
             found_lower_vowels.add(char)
         elif char in upper_vowels:
             found_upper_vowels.add(char)
-    
+     
     return found_lower_vowels, found_upper_vowels
 
 # Example usage
@@ -798,7 +798,7 @@ s = "   Hello World   "
 s = s.strip()
 print(s)
 
-
+ 
 def reverseString(s):
     res = []
   
@@ -870,7 +870,7 @@ print(f"The longest substring without repeating characters is: '{longest_substri
 # Output: "much.very.program.this.like.i"
 #method1
 def reverseWords(s):
-    words=s.split(".")
+    words=s.split(".") 
     words=[word for word in words if word]
     return ".".join(words[::-1]) 
 
@@ -995,13 +995,13 @@ def reverse_Vowels(s):
     vowels=set("aeiouAEIOU")
     chars=list(s)
     left,right=0, len(chars)-1 #calculating len of index 5-1=4, position of left=0 and right=4, left<right=0<4, 1<3, 2<2, 3<1, 4<0
-    while left<right:
+    while left<right: #normal check left and right pointers of vowels left side once and right once
         while left<right and chars[left] not in vowels:
             left +=1
         while left<right and chars[right] not in vowels:
             right -=1
 
-        chars[left], chars[right]=chars[right],chars[left] #swaping happing here 
+        chars[left], chars[right]=chars[right],chars[left] #swaping happing here for next pair of vowels 
         left+=1
         right-=1
 
@@ -1021,9 +1021,9 @@ class Solution:
             else:
                 frequency[item]=1
         
-        frequency=list(frequency.values())
+        frequency=list(frequency.values()) #Without the conversion, max(frequency) would compare dictionary keys, not counts, which would be wrong.
         
-        heighst=max(frequency)
+        heighst=max(frequency) 
         
         second_heighst=-1
         
@@ -1036,3 +1036,18 @@ class Solution:
 arr= ["aaa", "bbb", "ccc", "bbb", "aaa", "aaa"]
 sl=Solution()
 print(sl.secFrequent(arr))
+
+#cheking string rotations
+def check_rotation(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    for i in range(len(s1)):
+        rotated = s1[i:] + s1[:i]
+        if rotated == s2:
+            return True
+    return False
+
+# Example usage:
+s1 = input("Enter first string: ").upper()
+s2 = input("Enter second string: ").upper()
+print(check_rotation(s1, s2))  # Output: True or False

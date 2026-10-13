@@ -1080,7 +1080,7 @@ target=9
 result=two_sum(nums, target)
 print(f"printing indeces: ",result)"""
        
-"""def two_sum1(nums,target):
+def two_sum1(nums,target):
     left=0
     right=len(nums)-1
     while left<right:
@@ -1187,7 +1187,7 @@ for word in words:
         grouped_words[first_char] = []  # Create a new list if key doesn't exist
     grouped_words[first_char].append(word)  # Append word to the appropriate group
 
-print(grouped_words)
+print(grouped_words) 
 
 #Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
 #!/bin/python3
@@ -1401,4 +1401,15 @@ nums = [5,7,7,8,8,10]
 target=8
 print(s.searchRange(nums,target))
 
-"""
+
+def find_duplicates_indeces_with_specified_value(arr, x):
+  
+  idx=[]
+  for num in range(x):
+    if arr[num]==3:
+      idx.append(num)
+  return {3:idx}
+
+array=[3,3,1,5,1,3]
+x=3
+print(find_duplicates_indeces_with_specified_value(array, x))
