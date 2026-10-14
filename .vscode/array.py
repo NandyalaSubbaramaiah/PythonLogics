@@ -1402,7 +1402,7 @@ target=8
 print(s.searchRange(nums,target))
 
 
-def find_duplicates_indeces_with_specified_value(arr, x):
+def find_duplicates_indeces_with_specified_index_range(arr, x):
   
   idx=[]
   for num in range(x):
@@ -1412,4 +1412,29 @@ def find_duplicates_indeces_with_specified_value(arr, x):
 
 array=[3,3,1,5,1,3]
 x=3
-print(find_duplicates_indeces_with_specified_value(array, x))
+print(find_duplicates_indeces_with_specified_index_range(array, x))
+
+
+class Solution:
+    def rotateArr(self, arr, d):
+        n=len(arr)
+        
+        d=d%n
+        
+        def reverse(start,end):
+            while start<end:
+                arr[start], arr[end]=arr[end],arr[start]
+                start+=1
+                end-=1
+                
+        reverse(0, d-1)
+        
+        reverse(d, n-1)
+        
+        reverse(0, n-1)
+
+arr=[1,2,3,4,5]
+x=2
+sl=Solution()
+sl.rotateArr(arr, x)
+print(arr)
