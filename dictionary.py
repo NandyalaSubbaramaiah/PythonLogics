@@ -1,3 +1,30 @@
+"""Counting occurrences
+Grouping using dictionaries
+Nested dictionaries
+List of tuples → nested dictionary
+List of dictionaries → dictionary indexed by ID
+Dictionary comprehension 
+Sorting dictionaries
+Finding max/min
+Merging dictionaries
+get() vs setdefault()
+Dictionary internal implementation / hash table
+Dictionary time complexity
+Nested JSON transformation
+Flattening nested dictionaries
+Real API response transformation"""
+
+"""# Sorting dictionaries
+# Sort by keys
+scores = {'Charlie': 95, 'Alice': 90, 'Bob': 85}
+print('Sorted by key:', dict(sorted(scores.items())))
+
+# Sort by values in ascending order
+print('Sorted by value ascending:', dict(sorted(scores.items(), key=lambda item: item[1])))
+
+# Sort by values in descending order
+print('Sorted by value descending:', dict(sorted(scores.items(), key=lambda item: item[1], reverse=True)))
+
 #finding max value and duplicates in dictionary
 ini_dict = {'a':1, 'b':2, 'c':3, 'd':2}
 new_dict={}
@@ -23,7 +50,7 @@ print(y,x)
 #another method
 Tv={"Evildead":100,"Terminator":1200,"GameOfThrowns":70}
 keymax=min(zip(Tv.values(),Tv.keys()))[0]
-print(keymax)
+print(keymax) 
 
 
 # Python3 code to demonstrate working of
@@ -110,7 +137,7 @@ print(dict_comprehension)
 #convert list to dictionary
 list1=['a','b','c']
 list2=[1,2,3]
-newdict=dict(zip(list1,list2))
+newdict=dict(zip(list1, list2)) 
 print(newdict)
 
 #converts two saparate list
@@ -181,3 +208,220 @@ def sum_dict_values(d):
 
 data = {"a": 1, "b": {"c": 2, "d": {"e": 3}}}
 print(sum_dict_values(data))  # ➤ 6
+
+#convert the list of tuples to dictionary with nested structure and occorances count for users
+data = [
+    ("user1", "name", "John"),
+    ("user1", "age", 25),
+    ("user2", "name", "Alice"),
+    ("user2", "age", 30)
+]
+
+result = {}
+
+for user,key,value in data:
+    if user not in result:
+        result[user]={"occorances":0}
+    result[user][key] = value   
+    result[user]["occorances"]+=1
+print(result)
+
+
+#convertig json formate to dictionary with nested structure
+users=[
+    {
+        "user_id": "user1",
+        "name": "John",
+        "age": 25,
+        "city": "Chennai"
+    },
+    {
+        "user_id": "user2",
+        "name": "Alice",
+        "age": 30,
+        "city": "Bangalore"
+    },
+    {
+        "user_id": "user3",
+        "name": "David",
+        "age": 28,
+        "city": "Hyderabad"
+    }
+]
+
+res={}
+
+for user in users:
+    user_id = user["user_id"]
+    res[user_id] = {
+        "name":user["name"],
+        "age":user["age"],
+        "city":user['city']
+    }
+print(res)
+
+#grouped
+words = ["apple", "ant", "ball", "bat", "cat"]
+
+grouped = {}
+
+for word in words:
+    first_letter = word[0]
+
+    if first_letter not in grouped:
+        grouped[first_letter] = []
+
+    grouped[first_letter].append(word)
+
+print(grouped)
+
+
+students = [
+    ("John", "IT"),
+    ("Alice", "HR"),
+    ("Bob", "IT"),
+    ("David", "HR")
+]
+
+
+grouped_students = {}
+
+for name,department in students:
+    if department not in grouped_students:
+        grouped_students[department]=[]
+    grouped_students[department].append(name)
+
+print(grouped_students)
+
+# It separates the numbers into even and odd groups and stores those groups in a dictionary
+numbers = [1, 2, 3, 4, 5, 6]
+
+grouped = { #also considered as a dictionary with keys "even" and "odd" and their corresponding values as empty lists
+    "even": [],
+    "odd": []
+}
+
+
+for number in numbers:
+    if number % 2 == 0:
+        grouped["even"].append(number)
+    else:
+        grouped["odd"].append(number)
+
+print(grouped)
+
+
+words = ["cat", "dog", "apple", "bat", "orange"]
+
+grouped = {}
+
+for word in words:
+    length = len(word)
+
+    if length not in grouped:
+        grouped[length] = []
+
+    grouped[length].append(word)
+
+print(grouped)
+
+
+transactions = [
+    ("John", 100),
+    ("Alice", 200),
+    ("John", 150)
+]
+
+grouped={}
+
+for name,amount in transactions:
+    if name not in grouped:
+        grouped[name]=[]
+    grouped[name].append(amount)
+print(grouped)
+
+
+employees = [
+    {"name": "John", "city": "Chennai"},
+    {"name": "Alice", "city": "Bangalore"},
+    {"name": "Bob", "city": "Chennai"}
+]
+
+grouped={}
+
+for employee in employees:
+    city = employee["city"]
+    name = employee["name"]
+
+    if city not in grouped:
+        grouped[city] = []
+
+    grouped[city].append(name)
+
+print(grouped)
+
+
+# Nested dictionaries
+student_records = {
+    "student1": {
+        "name": "John",
+        "marks": {"math": 90, "science": 85}
+    },
+    "student2": {
+        "name": "Alice",
+        "marks": {"math": 95, "science": 92}
+    }
+} 
+
+# Access and update a value in the innermost dictionary
+print(student_records["student1"]["marks"]["math"])
+student_records["student1"]["marks"]["math"] = 96
+
+# Iterate through the nested dictionaries
+for student_id, student in student_records.items():
+    print(student_id, student["name"], student["marks"])
+
+
+# Dictionary comprehension problems
+# 1. Map each number from 1 to 5 to its cubes
+cubes = {number: number ** 3 for number in range(1, 6)}
+print(cubes)
+
+# 2. Keep only even numbers and map each to its square
+numbers_to_check = [1, 2, 3, 4, 5, 6]
+even_squares = {
+    number: number ** 2
+    for number in numbers_to_check
+    if number % 2 == 0
+}
+print(even_squares)
+
+# 3. Map each word to its length, keeping words longer than three characters
+words_to_check = ["cat", "apple", "banana", "dog"]
+long_word_lengths = {
+    word: len(word)
+    for word in words_to_check
+    if len(word) > 3
+}
+print(long_word_lengths)
+
+# 4. Swap keys and values; original values should be unique
+scores = {"Alice": 90, "Bob": 85, "Chris": 92}
+scores_by_points = {score: name for name, score in scores.items()}
+print(scores_by_points) 
+"""
+scores = {'Charlie': 95, 'Alice': 90, 'Bob': 85}
+
+# Sort by key
+print(dict(sorted(scores.items())))
+
+by_value_ascending = dict(
+    sorted(scores.items(), key=lambda item: item[1])
+)
+print(by_value_ascending)
+
+by_value_descending = dict(
+    sorted(scores.items(), key=lambda item: item[1], reverse=True)
+)
+
+print(by_value_descending)

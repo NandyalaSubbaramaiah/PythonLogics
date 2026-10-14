@@ -400,7 +400,7 @@ def check_upper_lower_vowels(s):
             found_lower_vowels.add(char)
         elif char in upper_vowels:
             found_upper_vowels.add(char)
-    
+     
     return found_lower_vowels, found_upper_vowels
 
 # Example usage
@@ -798,7 +798,7 @@ s = "   Hello World   "
 s = s.strip()
 print(s)
 
-
+ 
 def reverseString(s):
     res = []
   
@@ -870,9 +870,9 @@ print(f"The longest substring without repeating characters is: '{longest_substri
 # Output: "much.very.program.this.like.i"
 #method1
 def reverseWords(s):
-    words=s.split(".")
+    words=s.split(".") 
     words=[word for word in words if word]
-    return ".".join(words[::-1])
+    return ".".join(words[::-1]) 
 
 s="i.like.this.program.very.much"
 print(reverseWords(s))
@@ -898,9 +898,9 @@ for i in range(len(words)-1,-1,-1):
 print(result)
 
 
-def non_repeate(s):
+def first_non_repeate(s):
     n=len(s)  
-    for i  in range(n):
+    for i in range(n):
         found=False
         for j in range(n):
             if i!=j and s[i]==s[j]: #first check postition(i!=j) is diffent and string of char is same char's(s[i]==s[j]) content cheks's both are true, it returns found true or else not found false and returns unique char
@@ -911,7 +911,7 @@ def non_repeate(s):
     return '$'
     
 s="GeeksForGeeks"
-res=non_repeate(s)
+res=first_non_repeate(s)
 print(res)
 
 #first repeating chars
@@ -944,7 +944,7 @@ class Solution:
                     return s[i]
 
         return '#'
-
+ 
 
 s = "geeksforgeeks"
 
@@ -968,23 +968,6 @@ s="forgeeksskeegfor"
 sn=Solution()
 print(sn.longestPalindrome(s))
 """
-def check(s):
-    s=s.lower()
-    vowels=set("aeiou")
-    found_vowels=set()
-    for char in s:
-        if char in vowels:
-            found_vowels.add(char)
-    if len(found_vowels)==len(vowels):
-        print("accepted")
-    else:
-        print("not accepted")
-    return found_vowels
-
-s="SUBBARAMAIAH"
-res=check(s)
-print(res)
-
 
 class Solution:
     def smallerAndLarge(self, s: str) -> list[str]:
@@ -1012,13 +995,13 @@ def reverse_Vowels(s):
     vowels=set("aeiouAEIOU")
     chars=list(s)
     left,right=0, len(chars)-1 #calculating len of index 5-1=4, position of left=0 and right=4, left<right=0<4, 1<3, 2<2, 3<1, 4<0
-    while left<right:
+    while left<right: #normal check left and right pointers of vowels left side once and right once
         while left<right and chars[left] not in vowels:
             left +=1
         while left<right and chars[right] not in vowels:
             right -=1
 
-        chars[left], chars[right]=chars[right],chars[left] #swaping happing here 
+        chars[left], chars[right]=chars[right],chars[left] #swaping happing here for next pair of vowels 
         left+=1
         right-=1
 
@@ -1027,3 +1010,44 @@ def reverse_Vowels(s):
     
 print(reverse_Vowels("hello"))
 print(reverse_Vowels("leetcode"))
+
+
+class Solution:
+    def secFrequent(self, arr):
+        frequency={}
+        for item in arr:
+            if item in frequency:
+                frequency[item]+=1
+            else:
+                frequency[item]=1
+        
+        frequency=list(frequency.values()) #Without the conversion, max(frequency) would compare dictionary keys, not counts, which would be wrong.
+        
+        heighst=max(frequency) 
+        
+        second_heighst=-1
+        
+        for count in frequency:
+            if count<heighst:
+                second_heighst=max(second_heighst, count)
+                
+        return second_heighst
+
+arr= ["aaa", "bbb", "ccc", "bbb", "aaa", "aaa"]
+sl=Solution()
+print(sl.secFrequent(arr))
+
+#cheking string rotations
+def check_rotation(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    for i in range(len(s1)):
+        rotated = s1[i:] + s1[:i]
+        if rotated == s2:
+            return True
+    return False
+
+# Example usage:
+s1 = input("Enter first string: ").upper()
+s2 = input("Enter second string: ").upper()
+print(check_rotation(s1, s2))  # Output: True or False

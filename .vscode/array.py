@@ -11,8 +11,8 @@ arr2=["subbu","sai","sree"]
 seen=set()
 for i in range(0,len(arr1)):
       for j in range(0,len(arr2)):
-          if (arr1[i]==arr2[j]): 
-              seen.add(arr1[i])          
+        if (arr1[i]==arr2[j]): 
+            seen.add(arr1[i])          
 print(seen)
 
 #method two
@@ -131,14 +131,14 @@ print(result)
 #iterating array elements and store zeros at line end 
 #input=[1,2,0,7,3,0,0,10]
 #output=[[1, 2, 7, 3, 10, 0, 0, 0]
-def countelements_zeros_change_position(arr):
+def count_elements_zeros_change_position(arr):
     numberelements=[]
     zeroelements=0
     for num in arr:
         if num !=0:
             numberelements.append(num)
         else:
-             zeroelements+=1
+            zeroelements+=1
     numberelements.extend([0]*zeroelements)
     
     
@@ -175,14 +175,14 @@ res=numbers+zero
 print(res)
     
 #2nd method  
-def countelements_zeros_change_position(arr):
+def count_elements_zeros_change_position(arr):
     numberofelements=[num for num in arr if num!=0]
     numberofzeros=[num for num in arr if num==0]
     return numberofelements+numberofzeros
 
         
 arr=[1,2,0,7,3,0,0,10]
-change_the_position_of_zeros=countelements_zeros_change_position(arr)
+change_the_position_of_zeros=count_elements_zeros_change_position(arr)
 print(change_the_position_of_zeros)
 
 
@@ -1080,7 +1080,7 @@ target=9
 result=two_sum(nums, target)
 print(f"printing indeces: ",result)"""
        
-"""def two_sum1(nums,target):
+def two_sum1(nums,target):
     left=0
     right=len(nums)-1
     while left<right:
@@ -1187,7 +1187,7 @@ for word in words:
         grouped_words[first_char] = []  # Create a new list if key doesn't exist
     grouped_words[first_char].append(word)  # Append word to the appropriate group
 
-print(grouped_words)
+print(grouped_words) 
 
 #Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
 #!/bin/python3
@@ -1318,11 +1318,11 @@ def find_index(arrr,key):
 arrr=[2,3,4,5,6,7]
 key=4
 print(find_index(arrr,key))
-"""
+
 list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 result = []
 
-odd_num = []
+odd_num = [] 
 for num in list1:
     if num % 2 == 1:  
         odd_num = [num]+odd_num
@@ -1366,3 +1366,50 @@ newSize = removeDuplicates(arr)
 
 for i in range(newSize): 
     print(arr[i], end=" ")
+
+
+#without using any inbuilt methods moving zeros to end
+arr = [2, 0, 4, 0, 10, 0]
+
+index = 0
+
+for i in range(len(arr)):
+    if arr[i] != 0:
+        arr[index] = arr[i]
+        index += 1
+
+while index < len(arr):
+    arr[index] = 0
+    index += 1
+
+print(arr)
+
+#find first ans last position for sorted array
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        first=-1
+        last=-1
+        for i in range(len(nums)):
+            if nums[i]==target:
+                if first==-1:
+                    first=i
+                last=i
+        return [first, last]
+
+s=Solution()
+nums = [5,7,7,8,8,10]
+target=8
+print(s.searchRange(nums,target))
+
+
+def find_duplicates_indeces_with_specified_value(arr, x):
+  
+  idx=[]
+  for num in range(x):
+    if arr[num]==3:
+      idx.append(num)
+  return {3:idx}
+
+array=[3,3,1,5,1,3]
+x=3
+print(find_duplicates_indeces_with_specified_value(array, x))

@@ -1,7 +1,7 @@
 #2. Matrix Addition
 #Adding two matrices element-wise:
 
-"""A = [[1, 2], [3, 4]]
+A = [[1, 2], [3, 4]]
 B = [[5, 6], [7, 8]]
 
 result = [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
@@ -129,4 +129,174 @@ sorted_flattened = np.sort(v.flatten())
 
 print("\nFully Sorted Matrix:")
 print(sorted_flattened.reshape(v.shape))
+
+
+def transpose(mat):
+    return [[mat[j][i] for j in range(len(mat))] for i in range(len(mat[0]))] 
+    # mat[j][i] is used to access the elements of the original matrix in a transposed manner. The outer list comprehension iterates over the columns (i) of the original matrix, while the inner list comprehension iterates over the rows (j). This effectively swaps the rows and columns, resulting in the transposed matrix.
+
+
+mat=[
+ [1, 2, 3],
+ [4, 5, 6],
+ [7, 8, 9]
+]
+
+res = transpose(mat)
+for row in res:
+    print(row)
+
+#rectangle method 2rows*4columns
+def transpose(mat):
+    return [[mat[j][i] for j in range(len(mat))] for i in range(len(mat[0]))]
+
+mat = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8]
+]
+for row in transpose(mat):
+    print(row)
+
+
+#3×2 matrix
+def transpose(mat):
+    return [[mat[j][i] for j in range(len(mat))] for i in range(len(mat[0]))]
+
+
+mat = [
+    [10, 20],
+    [30, 40],
+    [50, 60]
+]
+for row in transpose(mat):
+    print(row)
+
+
+def transpose(mat):
+    result = []
+
+    for i in range(len(mat[0])):
+        new_row = []
+
+        for j in range(len(mat)):
+            if mat[j][i] >= 0:
+                new_row.append(mat[j][i])
+
+        result.append(new_row)
+
+    return result
+
+
+mat = [
+    [-1, 2],
+    [3, -4],
+    [6, 7]
+]
+
+result = transpose(mat)
+
+for row in result:
+    print(row)
+
+#diagnol matrix
+from ast import main
+
+
+"""mat = [
+[1, 2, 3], 
+[4, 5, 6],
+[7, 8, 9]
+]
+total=0
+for i in range(len(mat)):
+    # total+=mat[i][i]
+    # print(total)
+    # total+=mat[i][len(mat)-1-i]
+    # print(total)
+    total+=mat[i][i]+mat[i][len(mat)-1-i] 
+ 
+    i=0
+    main diagnoal mat[0][0] = 1
+    secondary diagonal mat[0][3-1-0]
+                        = mat[0][2]
+                        = 3
+                    total+=1+3=4
+    i = 1
+    main diagnol = mat[1][1] = 5
+    Secondary:
+
+                        mat[1][3-1-1]
+                        = mat[1][1]
+                        total= 5+5=10
+
+    i=2   same loop again here also 
+    #The reason we use one loop is that both diagonals have exactly one element in every row
+print(total)
 """
+#searches in matrix
+
+mat = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+target = 5
+
+for i in range(len(mat)):
+    for j in range(len(mat[0])):
+        if mat[i][j] == target:
+            print("found")
+            print(f"Element {target} found at position ({i}, {j})")
+            break
+    else:
+        continue
+    break
+
+
+#count of element's of matrix
+mat = [
+    [1, 2, 3],
+    [2, 5, 2],
+    [7, 2, 2]
+]
+
+target = 2
+
+count=0
+for i in range(len(mat)):
+    for j in range(len(mat[0])):
+        if mat[i][j] == target:
+            count += 1
+print(count)
+
+mat=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+largest=mat[0][0]
+
+for i in range(len(mat)):
+    for j in range(len(mat[0])):
+        if mat[i][j]>largest:
+            largest=mat[i][j]
+print(largest)
+
+mat=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+max_sum=0
+max_col=0
+
+for i in range(len(mat)):
+    total=0
+    for j in range(len(mat[0])):
+            total+=mat[i][j]
+    if total>max_sum:
+        max_sum=total
+        max_col=j
+print("max_col: ", max_col, "max sum: ", max_sum)

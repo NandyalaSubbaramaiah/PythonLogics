@@ -8,7 +8,7 @@
 #inner join
 import pandas as pd
 
-"""dept_df = pd.DataFrame({
+dept_df = pd.DataFrame({
     'dept_id': [1, 2, 3],
     'dept_name': ['HR', 'IT', 'Finance']
 })
@@ -32,8 +32,8 @@ emp_df = pd.DataFrame({
     'dept_id': [1, 2, 3]
 })   
 
-# left_join=pd.merge(dept_df, emp_df, on='dept_id', how="left")
-# right_join=pd.merge(dept_df, emp_df, on='dept_id', how="right")
+left_join=pd.merge(dept_df, emp_df, on='dept_id', how="left")
+right_join=pd.merge(dept_df, emp_df, on='dept_id', how="right")
 outer_join=pd.merge(dept_df, emp_df, on='dept_id', how="outer")
 print(outer_join)
 
@@ -41,7 +41,7 @@ print(outer_join)
 df4=emp_df.set_index("dept_id")
 df5=dept_df.set_index("dept_id")
 join_index=df5.join(df4, how='inner')
-print(join_index)"""
+print(join_index)
 
 #joins on columns names
 import pandas as pd
